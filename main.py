@@ -7,7 +7,7 @@ import os
 def download(url):
     response = urllib.urlopen(url)
     html = response.read()
-    return html
+    return html.decode('utf-8')
 
 def compute_path(url):
     u = urlparse.urlparse(url)
@@ -20,7 +20,7 @@ def select(html, selector):
     selected_tags = soup.select(selector)
     selected_strings = map(str, selected_tags)
     parts = "\n".join(selected_strings)
-    return parts
+    return parts.decode("utf-8")
 
 def process(url_and_selector):
     url = url_and_selector[0]
@@ -29,7 +29,7 @@ def process(url_and_selector):
     path = compute_path(url)
     html = download(url)
     selected = select(html, selector)
-    markdown = html2text.html2text(selected)
+    markdown = html2text.html2text(selected).encode("utf-8")
     dir = os.path.dirname(path)
     if dir and not os.path.exists(dir):
         os.makedirs(dir)
@@ -37,7 +37,8 @@ def process(url_and_selector):
         f.write(markdown)
 
 config = {
-    "http://www.example.com/": "body"
+    "http://www.example.com/": "body",
+    "https://www.apple.com/legal/internet-services/itunes/uk/terms.html": "#main *",
 }
 
 if __name__ == '__main__':
