@@ -39,6 +39,7 @@ def process(url_and_selector):
 config = {
     "http://www.example.com/": "body",
     "https://www.apple.com/legal/internet-services/itunes/uk/terms.html": "#main *",
+    "https://twitter.com/tos": "#main-content",
 }
 
 if __name__ == '__main__':
