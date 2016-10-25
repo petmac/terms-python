@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import html2text
 import urllib
 import urlparse
 import os
@@ -12,7 +13,7 @@ def compute_path(url):
     u = urlparse.urlparse(url)
     path = u.path.split("/")
     parts = filter(bool, ["output"] + [u.hostname] + path)
-    return "/".join(parts)
+    return "/".join(parts) + ".md"
 
 def select(html, selector):
     soup = BeautifulSoup(html, "html.parser")
@@ -28,11 +29,12 @@ def process(url_and_selector):
     path = compute_path(url)
     html = download(url)
     selected = select(html, selector)
+    markdown = html2text.html2text(selected)
     dir = os.path.dirname(path)
     if dir and not os.path.exists(dir):
         os.makedirs(dir)
     with open(path, "w") as f:
-        f.write(selected)
+        f.write(markdown)
 
 config = {
     "http://www.example.com/": "body"
