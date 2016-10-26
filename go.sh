@@ -9,5 +9,7 @@ python main.py
 
 pushd output
 git add -A
-git commit --message="Updated `date -u`"
+if [ -n "$(git status --porcelain)" ]; then
+    git commit --message="Updated `date -u`"
+fi
 popd
