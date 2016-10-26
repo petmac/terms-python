@@ -1,0 +1,3 @@
+[submodule "output"]
+	path = output
+	url = https://github.com/petmac/terms-python-output.git
