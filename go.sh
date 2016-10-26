@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -ve
 pushd output
+git pull
 git ls-files -z | xargs -0 rm -f
 popd
 
