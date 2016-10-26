@@ -4,4 +4,4 @@ install: "pip install -r requirements.txt"
 before_script:
   - git config --global user.email "travis-ci@example.com"
   - git config --global user.name "Travis CI"
-script: ./go.sh
+script: ./go.sh && ./push.sh
