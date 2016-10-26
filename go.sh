@@ -2,7 +2,7 @@
 set -ve
 pushd output
 git checkout master
-git pull origin master
+git pull --ff-only origin master
 git ls-files -z | xargs -0 rm -f
 popd
 
