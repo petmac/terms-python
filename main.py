@@ -22,8 +22,8 @@ def select(html, selector):
     parts = "\n".join(selected_strings)
     return parts.decode("utf-8")
 
-def convert(html):
-    h = html2text.HTML2Text()
+def convert(html, url):
+    h = html2text.HTML2Text(baseurl=url)
     h.body_width = 0
     return h.handle(html).encode("utf-8")
 
@@ -34,7 +34,7 @@ def process(url_and_selector):
     path = compute_path(url)
     html = download(url)
     selected = select(html, selector)
-    markdown = convert(selected)
+    markdown = convert(selected, url)
     dir = os.path.dirname(path)
     if dir and not os.path.exists(dir):
         os.makedirs(dir)
