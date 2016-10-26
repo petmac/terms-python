@@ -48,8 +48,7 @@ config = {
     "https://twitter.com/privacy": "#main-content",
     "https://twitter.com/rules": "article",
     "https://play.google.com/about/play-terms.html": "#play-play-terms.html > div.play-contained",
-    "https://play.google.com/about/restricted-content/": ".content",
-    "https://play.google.com/about/ip-deception-spam/": ".content",
+    "https://play.google.com/about/developer-content-policy-print/": ".print__content",
 }
 
 if __name__ == '__main__':
