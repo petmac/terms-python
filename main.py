@@ -40,6 +40,8 @@ config = {
     "http://www.example.com/": "body",
     "https://www.apple.com/legal/internet-services/itunes/uk/terms.html": "#main *",
     "https://twitter.com/tos": "#main-content",
+    "https://twitter.com/privacy": "#main-content",
+    "https://twitter.com/rules": "article",
 }
 
 if __name__ == '__main__':
