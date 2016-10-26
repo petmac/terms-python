@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ve
 pushd output
-git pull
+git pull origin master
 git ls-files -z | xargs -0 rm -f
 popd
 
