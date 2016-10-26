@@ -47,6 +47,7 @@ config = {
     "https://twitter.com/tos": "#main-content",
     "https://twitter.com/privacy": "#main-content",
     "https://twitter.com/rules": "article",
+    "https://play.google.com/about/play-terms.html": "#play-play-terms.html > div.play-contained"
 }
 
 if __name__ == '__main__':
