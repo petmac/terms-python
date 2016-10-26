@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -ve
 pushd output
+git fetch
 git checkout master
-git pull --ff-only origin master
+git reset origin/master --hard
 git ls-files -z | xargs -0 rm -f
 popd
 
